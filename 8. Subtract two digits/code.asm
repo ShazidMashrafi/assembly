@@ -2,8 +2,8 @@
 .stack 100h
 .data
     msg1 db "Input first number: $"
-    msg2 db "Input second number: $"
-    result db "Result: $"
+    msg2 db 10, 13, "Input second number: $"
+    result db 10, 13, "Result: $"
 .code
 main proc
     mov ax, @data
@@ -30,7 +30,7 @@ main proc
     lea dx, result
     int 21h
 
-    add bl, bh    ; bl = bl + bh
+    sub bl, bh    ; bl = bl  - bh
     sub bl, '0'   ; Convert from ASCII to integer
     mov ah, 2
     mov dl, bl    ; print the sum
